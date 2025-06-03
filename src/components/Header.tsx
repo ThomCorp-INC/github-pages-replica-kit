@@ -1,4 +1,3 @@
-
 import { useState } from "react";
 import { Menu, X } from "lucide-react";
 
@@ -17,8 +16,9 @@ export const Header = () => {
     { id: 'about', label: 'Over mij' },
     { id: 'experience', label: 'Ervaring' },
     { id: 'education', label: 'Opleiding' },
-    { id: 'badges', label: 'Badges' },
     { id: 'skills', label: 'Vaardigheden' },
+    { id: 'techstack', label: 'Tech Stack' },
+    { id: 'badges', label: 'Badges' },
     { id: 'contact', label: 'Contact' },
   ];
 
