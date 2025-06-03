@@ -1,12 +1,10 @@
-
-import { Github, Linkedin, Twitter, Instagram, Youtube } from "lucide-react";
+import { Github, Linkedin, Twitter, Instagram } from "lucide-react";
 
 export const Footer = () => {
   const socialLinks = [
     { icon: Github, href: "#", label: "GitHub" },
-    { icon: Youtube, href: "#", label: "YouTube" },
     { icon: Linkedin, href: "#", label: "LinkedIn" },
-    { icon: Twitter, href: "#", label: "Twitter" },
+    { icon: Twitter, href: "#", label: "X" },
     { icon: Instagram, href: "#", label: "Instagram" },
   ];
 
