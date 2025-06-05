@@ -3,6 +3,8 @@ import { Download, ChevronDown } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
 export const Hero = () => {
+  console.log("Hero component rendering");
+  
   const scrollToSection = (sectionId: string) => {
     const element = document.getElementById(sectionId);
     if (element) {
