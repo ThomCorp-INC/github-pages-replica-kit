@@ -10,23 +10,57 @@ export const Contact = () => {
     email: "",
     message: ""
   });
+  const [isSubmitting, setIsSubmitting] = useState(false);
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     
-    // Create mailto link
-    const subject = "Contact van website";
-    const body = formData.message;
-    const mailtoLink = `mailto:?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+    // Je moet hier je Formspree endpoint URL invullen
+    const formspreeUrl = "https://formspree.io/f/YOUR_FORM_ID";
     
-    window.location.href = mailtoLink;
+    if (formspreeUrl === "https://formspree.io/f/YOUR_FORM_ID") {
+      toast({
+        title: "Formspree niet geconfigureerd",
+        description: "Voeg je Formspree form ID toe in de Contact component.",
+        variant: "destructive"
+      });
+      return;
+    }
     
-    toast({
-      title: "Email client geopend",
-      description: "Je email programma zou nu moeten openen."
-    });
+    setIsSubmitting(true);
     
-    setFormData({ email: "", message: "" });
+    try {
+      const response = await fetch(formspreeUrl, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          email: formData.email,
+          message: formData.message,
+          _replyto: formData.email,
+        }),
+      });
+      
+      if (response.ok) {
+        toast({
+          title: "Bericht verzonden!",
+          description: "Bedankt voor je bericht. Ik neem zo snel mogelijk contact met je op."
+        });
+        setFormData({ email: "", message: "" });
+      } else {
+        throw new Error("Er ging iets mis bij het verzenden");
+      }
+    } catch (error) {
+      console.error("Error sending form:", error);
+      toast({
+        title: "Er ging iets mis",
+        description: "Het bericht kon niet worden verzonden. Probeer het later opnieuw.",
+        variant: "destructive"
+      });
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   return (
@@ -47,6 +81,7 @@ export const Contact = () => {
               placeholder="Jouw Email-adres"
               required
               className="w-full"
+              disabled={isSubmitting}
             />
           </div>
           
@@ -62,14 +97,16 @@ export const Contact = () => {
               rows={6}
               required
               className="w-full"
+              disabled={isSubmitting}
             />
           </div>
           
           <Button 
             type="submit" 
             className="w-full bg-blue-600 hover:bg-blue-700 text-white py-3 rounded-lg font-medium transition-colors"
+            disabled={isSubmitting}
           >
-            Stuur
+            {isSubmitting ? "Bezig met verzenden..." : "Stuur"}
           </Button>
         </form>
       </div>
