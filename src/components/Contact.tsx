@@ -15,17 +15,7 @@ export const Contact = () => {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     
-    // Je moet hier je Formspree endpoint URL invullen
     const formspreeUrl = "https://formspree.io/f/mbjnooor";
-    
-    if (formspreeUrl === "https://formspree.io/f/mbjnooor") {
-      toast({
-        title: "Formspree niet geconfigureerd",
-        description: "Voeg je Formspree form ID toe in de Contact component.",
-        variant: "destructive"
-      });
-      return;
-    }
     
     setIsSubmitting(true);
     
