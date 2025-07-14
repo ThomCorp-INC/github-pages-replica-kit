@@ -1,6 +1,7 @@
 
 import { Download, ChevronDown } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { toast } from "@/hooks/use-toast";
 
 export const Hero = () => {
   console.log("Hero component rendering");
@@ -9,6 +10,30 @@ export const Hero = () => {
     const element = document.getElementById(sectionId);
     if (element) {
       element.scrollIntoView({ behavior: 'smooth' });
+    }
+  };
+
+  const handleDownloadCV = () => {
+    const storedCV = localStorage.getItem('cvFile');
+    if (storedCV) {
+      const cvData = JSON.parse(storedCV);
+      const link = document.createElement('a');
+      link.href = cvData.url;
+      link.download = cvData.name;
+      document.body.appendChild(link);
+      link.click();
+      document.body.removeChild(link);
+      
+      toast({
+        title: "CV gedownload!",
+        description: "Je CV wordt nu gedownload."
+      });
+    } else {
+      toast({
+        title: "Geen CV gevonden",
+        description: "Upload eerst je CV via het CV beheer paneel.",
+        variant: "destructive"
+      });
     }
   };
 
@@ -36,6 +61,7 @@ export const Hero = () => {
           <Button 
             variant="outline" 
             className="border-gray-300 text-gray-700 hover:bg-gray-50 px-8 py-3 rounded-lg font-medium transition-all"
+            onClick={handleDownloadCV}
           >
             <Download className="mr-2 h-4 w-4" />
             Download CV
