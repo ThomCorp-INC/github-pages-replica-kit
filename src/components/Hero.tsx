@@ -1,4 +1,3 @@
-
 import { Download, ChevronDown } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { toast } from "@/hooks/use-toast";
@@ -14,27 +13,19 @@ export const Hero = () => {
   };
 
   const handleDownloadCV = () => {
-    const storedCV = localStorage.getItem('cvFile');
-    if (storedCV) {
-      const cvData = JSON.parse(storedCV);
-      const link = document.createElement('a');
-      link.href = cvData.url;
-      link.download = cvData.name;
-      document.body.appendChild(link);
-      link.click();
-      document.body.removeChild(link);
-      
-      toast({
-        title: "CV gedownload!",
-        description: "Je CV wordt nu gedownload."
-      });
-    } else {
-      toast({
-        title: "Geen CV gevonden",
-        description: "Upload eerst je CV via het CV beheer paneel.",
-        variant: "destructive"
-      });
-    }
+    // Direct link naar het PDF bestand in public map
+    const cvUrl = '/CV-Thom-van-der-Veen.pdf';
+    const link = document.createElement('a');
+    link.href = cvUrl;
+    link.download = "CV-Thom-van-der-Veen.pdf";
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
+    
+    toast({
+      title: "CV gedownload!",
+      description: "Je CV wordt nu gedownload."
+    });
   };
 
   return (
