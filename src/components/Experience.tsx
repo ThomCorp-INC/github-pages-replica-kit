@@ -2,9 +2,9 @@
 export const Experience = () => {
   const experiences = [
     {
-      company: "[Nieuwe Ervaring - Vul hier in]",
-      position: "[Functie - Vul hier in]",
-      description: "[Beschrijving - Vul hier in]"
+      company: "Work in progress",
+      position: "Work in progress",
+      description: "Work in progress"
     },
     {
       company: "Rohaka Management & Support B.V.",
