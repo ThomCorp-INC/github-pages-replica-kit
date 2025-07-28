@@ -13,16 +13,20 @@ export const Hero = () => {
   };
 
   const handleDownloadCV = () => {
-    // Volledige URL naar het PDF bestand om GitHub Pages compatibiliteit te garanderen
     const baseUrl = window.location.origin;
     const cvUrl = `${baseUrl}/CV-Thom-van-der-Veen.pdf`;
     
-    // Gebruik window.open voor betere PDF-handling
-    window.open(cvUrl, '_blank');
+    // Download het bestand direct
+    const link = document.createElement('a');
+    link.href = cvUrl;
+    link.download = 'CV-Thom-van-der-Veen.pdf';
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
     
     toast({
-      title: "CV geopend!",
-      description: "Je CV wordt nu in een nieuw tabblad geopend."
+      title: "CV gedownload!",
+      description: "Je CV wordt nu gedownload."
     });
   };
 
