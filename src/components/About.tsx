@@ -7,16 +7,15 @@ export const About = () => {
         
         <div className="prose prose-lg max-w-none text-gray-600 leading-relaxed">
           <p className="text-lg mb-6">
-            Als derdejaarsstudent aan het Expert ICT Systems en Devices-programma ben ik, Thom van der 
-            Veen, constant bezig met het verkennen en verbeteren van mijn vaardigheden. Buiten de 
-            collegezalen breng ik graag tijd door met het bouwen van mijn eigen website en het spelen van 
-            games, waarbij ik mijn creativiteit en technische kennis kan uitleven.
+            Als eerstejaarsstudent aan de duale opleiding Cloud & Cyber Security aan de Hogeschool Utrecht – in samenwerking met Stichting Cita – ben ik, Thom van der Veen, continu bezig met het verdiepen van mijn kennis en vaardigheden binnen de IT-wereld. Door de combinatie van leren en werken ontwikkel ik niet alleen mijn technische expertise, maar leer ik ook deze toe te passen in de praktijk.
           </p>
           
           <p className="text-lg">
-            Mijn ultieme doel is om een gewaardeerde netwerkbeheerder te worden bij een toonaangevend 
-            bedrijf. Ik ben vastberaden om mijn passie voor technologie om te zetten in een lonende carrière 
-            waarin ik mijn vaardigheden kan benutten en blijven ontwikkelen.
+            Buiten mijn studie werk ik graag aan mijn eigen projecten, zoals het bouwen van websites en het beheren van servers. Ook game ik regelmatig, waar mijn creativiteit en probleemoplossend vermogen goed van pas komen.
+
+Mijn doel is om een professionele en betrouwbare specialist te worden op het gebied van netwerkbeheer en cybersecurity. Ik ben gemotiveerd om mijn passie voor technologie om te zetten in een carrière waarin ik dagelijks kan blijven leren, groeien en bijdragen aan veilige IT-oplossingen.
+
+
           </p>
         </div>
       </div>
