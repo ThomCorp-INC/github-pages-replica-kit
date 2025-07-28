@@ -2,6 +2,12 @@
 export const Education = () => {
   const educationItems = [
     {
+      institution: "[Nieuwe Opleiding - Vul hier in]",
+      program: "[Programma Naam - Vul hier in]",
+      period: "[Periode - Vul hier in]",
+      description: "[Beschrijving - Vul hier in]"
+    },
+    {
       institution: "ROC van Flevoland",
       program: "Expert IT systems and devices",
       period: "augustus 2023 - Heden",

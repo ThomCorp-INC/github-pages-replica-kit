@@ -2,6 +2,11 @@
 export const Experience = () => {
   const experiences = [
     {
+      company: "[Nieuwe Ervaring - Vul hier in]",
+      position: "[Functie - Vul hier in]",
+      description: "[Beschrijving - Vul hier in]"
+    },
+    {
       company: "Rohaka Management & Support B.V.",
       position: "ICT Stagair",
       description: "Als stagair bij Rohaka werk je aan systeembeheer, van hardware-installatie tot 1e-lijns support. Je beheert netwerken, applicaties en security. Je doet waardevolle praktijkervaring op in een dynamische omgeving met ruimte voor ontwikkeling, eigen inbreng en het uitwerken van schoolopdrachten onder professionele begeleiding."
