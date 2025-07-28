@@ -7,7 +7,7 @@ export const About = () => {
         
         <div className="prose prose-lg max-w-none text-gray-600 leading-relaxed">
           <p className="text-lg mb-6">
-            Als eerstejaarsstudent aan de duale opleiding Cloud & Cyber Security aan de Hogeschool Utrecht – in samenwerking met Stichting Cita – ben ik, Thom van der Veen, continu bezig met het verdiepen van mijn kennis en vaardigheden binnen de IT-wereld. Door de combinatie van leren en werken ontwikkel ik niet alleen mijn technische expertise, maar leer ik ook deze toe te passen in de praktijk.
+            Als eerstejaarsstudent aan de duale opleiding Cloud & Cyber Security aan de Hogeschool Utrecht, in samenwerking met Stichting Cita ben ik, Thom van der Veen, continu bezig met het verdiepen van mijn kennis en vaardigheden binnen de IT-wereld. Door de combinatie van leren en werken ontwikkel ik niet alleen mijn technische expertise, maar leer ik ook deze toe te passen in de praktijk.
           </p>
           
           <p className="text-lg">
