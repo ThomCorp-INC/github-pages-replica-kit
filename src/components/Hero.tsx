@@ -37,7 +37,7 @@ export const Hero = () => {
         </h1>
         
         <h2 className="text-xl md:text-2xl lg:text-3xl text-blue-600 mb-8 font-medium">
-          Student aan het ROC van Flevoland
+          Student aan Hogeschool Utrecht
         </h2>
         
         <div className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-16">
