@@ -2,15 +2,15 @@
 export const Education = () => {
   const educationItems = [
     {
-      institution: "[Nieuwe Opleiding - Vul hier in]",
-      program: "[Programma Naam - Vul hier in]",
-      period: "[Periode - Vul hier in]",
-      description: "[Beschrijving - Vul hier in]"
+      institution: "Hogeschool Utrecht",
+      program: "Cloud & Cyber Security",
+      period: "September 2025 - Heden",
+      description: "Het beroep van Cyber Security & Cloud Engineer is een belangrijke pijler voor de toekomst. Met de toenemende afhankelijkheid van IT en de groeiende dreiging van digitale bedreigingen, groeit de vraag naar specialisten in dit vakgebied op HBO-niveau. CITA-bedrijven bieden daarom directe werkgelegenheid en de mogelijkheid om je kennis te verdiepen en uit te breiden via de duale HBO-opleiding Cyber Security & Cloud van Hogeschool Utrecht. Dit is een unieke kans om je HBO-diploma te behalen terwijl je deel uitmaakt van een geweldig team."
     },
     {
       institution: "ROC van Flevoland",
       program: "Expert IT systems and devices",
-      period: "augustus 2023 - Heden",
+      period: "augustus 2023 - Juli 2025",
       description: "Als expert IT systems & devices zorg jij ervoor dat je collega's gebruik kunnen maken van internet, e-mail, telefoon en het interne netwerk. Je houdt je vooral bezig met het onderhoud, het beheer en de beveiliging van kleine tot middelgrote netwerken. Daarvoor gebruik je allerlei protocollen, besturingssystemen en andere software. Jij bewaakt het netwerk (dus ook intranet en internet) bijvoorbeeld tegen virussen en aanvallen van hackers. Dat doe je zelfstandig of in een team. Ook blijf je op de hoogte van nieuwe producten op netwerkgebied. Je praat veel met collega's over hoe je het netwerk veilig en werkend kunt houden. Als er een probleem is, los jij het op. Je probeert dan te voorkomen dat het nog eens gebeurt."
     },
     {
