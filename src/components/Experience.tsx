@@ -2,9 +2,9 @@
 export const Experience = () => {
   const experiences = [
     {
-      company: "Work in progress",
-      position: "Work in progress",
-      description: "Work in progress"
+      company: "Pelican ICT",
+      position: "Systeembeheerder",
+      description: "Als Systeembeheerder bij Pelican ICT maak je deel uit van ons toegewijde team op de afdeling Systeembeheer. Bij onze team ben je verantwoordelijk voor het beheer en de optimalisatie van onze IT-infrastructuur. Je speelt een cruciale rol in het waarborgen van de stabiliteit en efficiëntie van onze systemen, en je staat klaar om technische ondersteuning te bieden aan zowel interne als onze gewaardeerde klanten. Bij Pelican ICT stellen we de klant centraal, en jouw bijdrage aan een soepele en klantvriendelijke IT-dienstverlening is van onschatbare waarde."
     },
     {
       company: "Rohaka Management & Support B.V.",
