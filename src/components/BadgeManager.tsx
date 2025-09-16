@@ -4,7 +4,7 @@ import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
-import { Plus, Upload, X } from "lucide-react";
+import { Plus, Upload, X, Edit } from "lucide-react";
 import { useToast } from "@/hooks/use-toast";
 
 export interface BadgeData {
@@ -22,6 +22,7 @@ interface BadgeManagerProps {
 
 export const BadgeManager = ({ badges, onBadgesChange }: BadgeManagerProps) => {
   const [isAdding, setIsAdding] = useState(false);
+  const [editingBadge, setEditingBadge] = useState<BadgeData | null>(null);
   const [newBadge, setNewBadge] = useState({
     title: "",
     description: "",
@@ -88,6 +89,64 @@ export const BadgeManager = ({ badges, onBadgesChange }: BadgeManagerProps) => {
     });
   };
 
+  const handleEditBadge = (badge: BadgeData) => {
+    setEditingBadge(badge);
+    setNewBadge({
+      title: badge.title,
+      description: badge.description,
+      imageUrl: badge.imageUrl || "",
+      color: badge.color
+    });
+  };
+
+  const handleUpdateBadge = () => {
+    if (!editingBadge || !newBadge.title.trim()) {
+      toast({
+        title: "Fout",
+        description: "Voer een titel in voor de badge.",
+        variant: "destructive"
+      });
+      return;
+    }
+
+    const updatedBadge: BadgeData = {
+      ...editingBadge,
+      title: newBadge.title,
+      description: newBadge.description,
+      imageUrl: newBadge.imageUrl,
+      color: newBadge.color
+    };
+
+    const updatedBadges = badges.map(badge => 
+      badge.id === editingBadge.id ? updatedBadge : badge
+    );
+
+    onBadgesChange(updatedBadges);
+    setEditingBadge(null);
+    setNewBadge({
+      title: "",
+      description: "",
+      imageUrl: "",
+      color: "bg-blue-500"
+    });
+    
+    toast({
+      title: "Badge bijgewerkt!",
+      description: "De badge is succesvol bijgewerkt."
+    });
+  };
+
+  const handleCancelEdit = () => {
+    setEditingBadge(null);
+    setIsAdding(false);
+    setNewBadge({
+      title: "",
+      description: "",
+      imageUrl: "",
+      color: "bg-blue-500"
+    });
+  };
+
   const handleRemoveBadge = (id: string) => {
     onBadgesChange(badges.filter(badge => badge.id !== id));
     toast({
@@ -106,10 +165,10 @@ export const BadgeManager = ({ badges, onBadgesChange }: BadgeManagerProps) => {
         </Button>
       </div>
 
-      {isAdding && (
+      {(isAdding || editingBadge) && (
         <Card className="mb-6">
           <CardHeader>
-            <CardTitle>Nieuwe Badge Toevoegen</CardTitle>
+            <CardTitle>{editingBadge ? "Badge Bewerken" : "Nieuwe Badge Toevoegen"}</CardTitle>
           </CardHeader>
           <CardContent className="space-y-4">
             <div>
@@ -180,10 +239,17 @@ export const BadgeManager = ({ badges, onBadgesChange }: BadgeManagerProps) => {
             </div>
 
             <div className="flex gap-2">
-              <Button onClick={handleAddBadge}>Toevoegen</Button>
-              <Button variant="outline" onClick={() => setIsAdding(false)}>
-                Annuleren
-              </Button>
+              {editingBadge ? (
+                <>
+                  <Button onClick={handleUpdateBadge}>Bijwerken</Button>
+                  <Button variant="outline" onClick={handleCancelEdit}>Annuleren</Button>
+                </>
+              ) : (
+                <>
+                  <Button onClick={handleAddBadge}>Toevoegen</Button>
+                  <Button variant="outline" onClick={handleCancelEdit}>Annuleren</Button>
+                </>
+              )}
             </div>
           </CardContent>
         </Card>
@@ -192,14 +258,24 @@ export const BadgeManager = ({ badges, onBadgesChange }: BadgeManagerProps) => {
       <div className="grid md:grid-cols-2 gap-6">
         {badges.map((badge) => (
           <Card key={badge.id} className="relative">
-            <Button
-              variant="outline"
-              size="sm"
-              className="absolute top-2 right-2 p-1 h-auto"
-              onClick={() => handleRemoveBadge(badge.id)}
-            >
-              <X className="w-4 h-4" />
-            </Button>
+            <div className="absolute top-2 right-2 flex gap-1">
+              <Button
+                variant="outline"
+                size="sm"
+                className="p-1 h-auto"
+                onClick={() => handleEditBadge(badge)}
+              >
+                <Edit className="w-4 h-4" />
+              </Button>
+              <Button
+                variant="outline"
+                size="sm"
+                className="p-1 h-auto"
+                onClick={() => handleRemoveBadge(badge.id)}
+              >
+                <X className="w-4 h-4" />
+              </Button>
+            </div>
             <CardContent className="p-6">
               <div className="flex items-start space-x-4">
                 <div className={`w-16 h-16 ${badge.color} rounded-lg flex items-center justify-center flex-shrink-0`}>
