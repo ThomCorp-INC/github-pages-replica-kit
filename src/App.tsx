@@ -7,6 +7,7 @@ import { BrowserRouter, Routes, Route, useNavigate, useLocation } from "react-ro
 import { useEffect } from "react";
 import Index from "./pages/Index";
 import CVManager from "./pages/CVManager";
+import BadgeManager from "./pages/BadgeManager";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
@@ -38,6 +39,7 @@ const App = () => (
         <Routes>
           <Route path="/" element={<Index />} />
           <Route path="/cv-manager" element={<CVManager />} />
+          <Route path="/badge-manager" element={<BadgeManager />} />
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />
         </Routes>

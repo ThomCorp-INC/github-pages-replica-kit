@@ -44,6 +44,12 @@ export const Header = () => {
                 {item.label}
               </button>
             ))}
+            <a
+              href="/badge-manager"
+              className="text-gray-600 hover:text-blue-600 transition-colors font-medium"
+            >
+              Badge Beheer
+            </a>
           </div>
 
           {/* Mobile Menu Button */}
@@ -68,6 +74,12 @@ export const Header = () => {
                   {item.label}
                 </button>
               ))}
+              <a
+                href="/badge-manager"
+                className="text-gray-600 hover:text-blue-600 transition-colors font-medium text-left"
+              >
+                Badge Beheer
+              </a>
             </div>
           </div>
         )}
